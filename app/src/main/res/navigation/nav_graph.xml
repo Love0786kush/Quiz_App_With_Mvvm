@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <!-- Splash Screen -->
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.quizappwithmvvm.views.SplashFragment"
+        android:label="Splash"
+        tools:layout="@layout/fragment_splash">
+
+        <action
+            android:id="@+id/action_splashFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+
+        <action
+            android:id="@+id/action_splashFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+
+        <action
+            android:id="@+id/action_splashFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+
+    <!-- Sign Up -->
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.example.quizappwithmvvm.views.SignupFragment"
+        android:label="Sign Up"
+        tools:layout="@layout/fragment_signup">
+
+        <action
+            android:id="@+id/action_signupFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+
+    <!-- Sign In -->
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.quizappwithmvvm.views.SignInFragment"
+        android:label="Sign In"
+        tools:layout="@layout/fragment_sign_in">
+
+        <action
+            android:id="@+id/action_signInFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+
+        <action
+            android:id="@+id/action_signInFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+
+    <!-- Quiz List -->
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.quizappwithmvvm.views.ListFragment"
+        android:label="Quiz List"
+        tools:layout="@layout/fragment_list">
+
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@id/detailFragment">
+            <argument
+                android:name="position"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <!-- Quiz Detail -->
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.quizappwithmvvm.views.DetailFragment"
+        android:label="Quiz Detail"
+        tools:layout="@layout/fragment_detail">
+
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+
+        <action
+            android:id="@+id/action_detailFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+    </fragment>
+
+    <!-- Quiz Fragment -->
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.example.quizappwithmvvm.views.QuizFragment"
+        android:label="Quiz"
+        tools:layout="@layout/fragment_quiz">
+
+        <!-- ✅ Fix nullable argument -->
+        <argument
+            android:name="quizId"
+            app:argType="string"
+            android:defaultValue="@null"
+            app:nullable="true" />
+
+        <argument
+            android:name="totalQueCount"
+            app:argType="long"
+            android:defaultValue="0L" />
+
+        <action
+            android:id="@+id/action_quizFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+
+        <action
+            android:id="@+id/action_quizFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+
+    <!-- Result Fragment -->
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.quizappwithmvvm.views.ResultFragment"
+        android:label="Result"
+        tools:layout="@layout/fragment_result">
+
+        <!-- ✅ Fix nullable argument -->
+        <argument
+            android:name="quizId"
+            app:argType="string"
+            android:defaultValue="@null"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_resultFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+
+</navigation>

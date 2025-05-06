@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "55538167695",
+    "project_id": "quiz-app-with-mvvm",
+    "storage_bucket": "quiz-app-with-mvvm.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:55538167695:android:43ea00f25af6774309a5fa",
+        "android_client_info": {
+          "package_name": "com.example.quizappwithmvvm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCClCWTMJD36pTEYl70MHPo_Eqtc0ZIAGs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
